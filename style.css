@@ -36,7 +36,7 @@
     font-family: 'Muli', sans-serif;
     align-items: center;
     justify-content: center;
-    height: 100vh;
+    /* height: 100vh; */
     overflow:hidden;
     margin: 0;
 }
@@ -47,7 +47,8 @@ header {
 .container {
     margin-top: 50px;
     display: flex;
-    width: 90vh; 
+    width: 60%; 
+    flex-wrap: wrap;
   }
   .panel {
     background-size: auto 100%;
