@@ -1,18 +1,34 @@
-const dogAPI = {
-	method: 'GET',
-	headers: {
-		'X-RapidAPI-Key': '9ae96ccc04msh6ac42f5031ed2fcp165a43jsn4a44b9c17108',
-		'X-RapidAPI-Host': 'dogbreeds.p.rapidapi.com'
-	}
+const options = {
+  headers: {
+    "x-api-key":
+      "live_fFrRONdaeTZ2b6GBxkr9e4l1fnTYUvkkOuAofGDTdHeno0TCXa9XeikKB6wZ1viz",
+  },
 };
 
-fetch('https://dogbreeds.p.rapidapi.com/api/dog-breeds/list/profiles', dogAPI)
-	.then(response => response.json())
-	.then(allData)
-    
-	.catch(err => console.error(err));
+fetch("https://api.thedogapi.com/v1/breeds", options)
+  .then((response) => response.json())
+  .then((data) => {
+    console.log(data);
+    for (let i = 0; i < data.length; i++) {
+      let dogDiv = document.createElement("div");
+      dogDiv.addEventListener("click", (e) => {
+        removeActiveClasses();
+        e.target.classList.add("active");
+      });
+      dogDiv.setAttribute("class", "panel");
+      dogDiv.style.backgroundImage = `url("${data[i].image.url}")`;
+      console.log(dogDiv);
+      let h3 = document.createElement("h3");
+      h3.innerText = data[i].name;
+      document.querySelector(".container").append(dogDiv);
+      dogDiv.append(h3);
+    }
+  })
+  .catch((err) => console.error(err));
 
-    function allData (data) {
-
-console.log(data)
-    };
+function removeActiveClasses() {
+  const panels = document.querySelectorAll(".panel");
+  panels.forEach((panel) => {
+    panel.classList.remove("active");
+  });
+}
