@@ -8,6 +8,7 @@ const options = {
 fetch("https://api.thedogapi.com/v1/breeds", options)
   .then((response) => response.json())
   .then((data) => {
+	dropDown(data)
     console.log(data);
     for (let i = 0; i < data.length; i++) {
       let dogDiv = document.createElement("div");
@@ -17,7 +18,7 @@ fetch("https://api.thedogapi.com/v1/breeds", options)
       });
       dogDiv.setAttribute("class", "panel");
       dogDiv.style.backgroundImage = `url("${data[i].image.url}")`;
-      console.log(dogDiv);
+      //   console.log(dogDiv);
       let h3 = document.createElement("h3");
       h3.innerText = data[i].name;
       document.querySelector(".container").append(dogDiv);
@@ -32,3 +33,19 @@ function removeActiveClasses() {
     panel.classList.remove("active");
   });
 }
+
+function dropDown(data) {
+  const breedGroupList = [...new Set(data.map((d)=> d.breed_group))].filter((breedGroup) => !!breedGroup);
+  // console.log(breedGroupList)
+  for (let i = 0; i < breedGroupList.length; i++) {
+    let drpDwn = document.querySelector(".dropdown-content");
+    let breedGroup = document.createElement("a");
+    breedGroup.textContent = breedGroupList[i]
+    drpDwn.append(breedGroup);
+  }
+}
+// function dropDown(data) {
+
+//   const breedGroupList = [...new Set(data.map((d)=> d.breed_group))].filter((breedGroup) => !!breedGroup);
+//   console.log(breedGroupList)
+// }
