@@ -48,11 +48,16 @@ footer {
     text-align: center;
     justify-content: flex-end;
 }
+.scroll-container {
+  width: 100%;
+  overflow-x: auto;
+}
 .container {
     margin-top: 100px;
     display: flex;
     width: 15000px; 
-    overflow:hidden;
+    overflow-x: auto;
+    /* overflow:hidden; */
     margin: auto;
   }
   .panel {
@@ -89,6 +94,9 @@ footer {
     
 }
 #dog-list {
+  display: grid;
+  grid-template-columns: 2fr 2fr 2fr 2fr;
+  grid-row-gap: 10px;
   color: #ddd;
 }
 /* Dropdown Button */

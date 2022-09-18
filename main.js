@@ -5,6 +5,8 @@ const options = {
   },
 };
 
+const dogList = document.querySelector("#dog-list");
+
 fetch("https://api.thedogapi.com/v1/breeds", options)
   .then((response) => response.json())
   .then((data) => {
@@ -47,7 +49,7 @@ function dropDown(data) {
   }
 }
 
-const dogList = document.querySelector("#dog-list");
+
 
 fetch("https://api.thedogapi.com/v1/breeds?attach_breed=172", options)
   .then((response) => response.json())
@@ -57,6 +59,7 @@ fetch("https://api.thedogapi.com/v1/breeds?attach_breed=172", options)
       p.innerText = data[i].name;
 
       p.addEventListener("click", (e) => {
+        e.preventDefault;
         fetch(`https://api.thedogapi.com/v1/breeds/search?q=${p.innerText}`)
           .then((response) => response.json())
           .then((json) => {
