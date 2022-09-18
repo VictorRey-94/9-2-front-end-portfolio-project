@@ -15,7 +15,7 @@
     align-items: center;
     justify-content: center;
     margin: 0;
-    background-color: #1c68a6;
+    background-image: url('https://images.unsplash.com/photo-1607499699372-7bb722dff7e2?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80');
 }
 @media screen and (max-width: 992px) {
     body {
@@ -35,6 +35,10 @@ header {
     text-align:center;
    position: fixed;
    color: #ddd;
+}
+footer {
+  background-color: #ddd;
+  ;
 }
 .search {
     position: fixed;

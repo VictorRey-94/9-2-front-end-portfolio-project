@@ -1,8 +1,84 @@
-body{
-    margin: 0;
-    background-color: #1c68a6;
+ body {
+  margin: 0
 }
-@media screen and (max-width: 992px) {
+
+.sidebar {
+    grid-area: sidebar;
+  }
+
+  .sidebar2 {
+    grid-area: sidebar2;
+  }
+
+  .content {
+    grid-area: content;
+  }
+
+  .header {
+    grid-area: header;
+  }
+
+  .footer {
+    grid-area: footer;
+  }
+
+  .wrapper {
+    background-color: #fff;
+    color: #444;
+  }
+
+  .wrapper {
+    display: grid;
+    grid-gap: 1em;
+    grid-template-areas:
+     "header"
+     "sidebar"
+     "content"
+     "sidebar2"
+     "footer"
+  }
+
+  @media all and (max-width: 992px)  {
+  .wrapper {
+    grid-template-columns: 90% auto 90%;
+    grid-template-areas:
+    "header   header"
+    "sidebar  content"
+    "sidebar2 sidebar2"
+    "footer   footer";
+  }
+  }
+
+  @media all and (min-width: 600px)   {
+    .wrapper {
+      grid-gap: 5px;
+      grid-template-columns: 90% 50% 90%;
+      grid-template-areas:
+      "header  header  header"
+      "sidebar content sidebar2"
+      "footer  footer  footer";
+      max-width: 600px;
+    }
+  }
+
+.box {
+  background-color: #444;
+  color: #fff;
+  border-radius: 5px;
+  padding: 10px;
+  font-size: 150%; 
+}
+
+.header,
+.footer {
+  background-color: #999;
+}
+/*
+.sidebar2 {
+  background-color: #ccc;
+  color: #444;
+} */
+/* @media screen and (max-width: 992px) {
     body {
       background-color: rgb(203, 32, 55);
       color: white;
@@ -10,14 +86,11 @@ body{
   }
   
   /* On screens that are 600px wide or less, the background color is olive */
-  @media screen and (max-width: 600px) {
+  /* @media screen and (max-width: 600px) {
     body {
       background-color: olive;
       color: white;
-    }
-  }
-header {
-    text-align:center;
-   position: fixed;
-   color: #ddd;
-}
+      background-image: url('https://images.unsplash.com/photo-1607499699372-7bb722dff7e2?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80');
+      display: grid;
+    } */
+  

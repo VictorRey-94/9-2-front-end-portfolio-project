@@ -8,7 +8,7 @@ const options = {
 fetch("https://api.thedogapi.com/v1/breeds", options)
   .then((response) => response.json())
   .then((data) => {
-	dropDown(data)
+    dropDown(data);
     console.log(data);
     for (let i = 0; i < data.length; i++) {
       let dogDiv = document.createElement("div");
@@ -35,17 +35,14 @@ function removeActiveClasses() {
 }
 
 function dropDown(data) {
-  const breedGroupList = [...new Set(data.map((d)=> d.breed_group))].filter((breedGroup) => !!breedGroup);
-  // console.log(breedGroupList)
+  const breedGroupList = [...new Set(data.map((d) => d.breed_group))].filter(
+    (breedGroup) => !!breedGroup
+  );
+
   for (let i = 0; i < breedGroupList.length; i++) {
     let drpDwn = document.querySelector(".dropdown-content");
     let breedGroup = document.createElement("a");
-    breedGroup.textContent = breedGroupList[i]
+    breedGroup.textContent = breedGroupList[i];
     drpDwn.append(breedGroup);
   }
-}
-// function dropDown(data) {
-
-//   const breedGroupList = [...new Set(data.map((d)=> d.breed_group))].filter((breedGroup) => !!breedGroup);
-//   console.log(breedGroupList)
-// }
+};
