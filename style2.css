@@ -1,0 +1,23 @@
+body{
+    margin: 0;
+    background-color: #1c68a6;
+}
+@media screen and (max-width: 992px) {
+    body {
+      background-color: rgb(203, 32, 55);
+      color: white;
+    }
+  }
+  
+  /* On screens that are 600px wide or less, the background color is olive */
+  @media screen and (max-width: 600px) {
+    body {
+      background-color: olive;
+      color: white;
+    }
+  }
+header {
+    text-align:center;
+   position: fixed;
+   color: #ddd;
+}
