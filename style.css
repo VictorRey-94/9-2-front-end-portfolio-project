@@ -33,15 +33,19 @@
   }
 header {
     text-align:center;
-   position: fixed;
+   position: relative;
    color: #ddd;
+}
+h1{
+  color: bisque;
 }
 footer {
   background-color: #ddd;
   ;
 }
 .search {
-    position: fixed;
+    position: relative;
+    text-align: center;
     justify-content: flex-end;
 }
 .container {
@@ -83,6 +87,9 @@ footer {
 .panel.active h3 {
     opacity: 1;
     
+}
+#dog-list {
+  color: #ddd;
 }
 /* Dropdown Button */
 .dropbtn {

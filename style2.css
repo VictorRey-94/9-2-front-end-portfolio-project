@@ -23,6 +23,9 @@
   }
 
   .wrapper {
+    display: grid;
+  grid-template-columns: 100px 100px 100px;
+  grid-template-rows: auto;
     background-color: #fff;
     color: #444;
   }

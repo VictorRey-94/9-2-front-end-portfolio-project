@@ -45,4 +45,26 @@ function dropDown(data) {
     breedGroup.textContent = breedGroupList[i];
     drpDwn.append(breedGroup);
   }
-};
+}
+
+const dogList = document.querySelector("#dog-list");
+
+fetch("https://api.thedogapi.com/v1/breeds?attach_breed=172", options)
+  .then((response) => response.json())
+  .then((data) => {
+    for (let i = 0; i < data.length; i++) {
+      const p = document.createElement("p");
+      p.innerText = data[i].name;
+
+      p.addEventListener("click", (e) => {
+        fetch(`https://api.thedogapi.com/v1/breeds/search?q=${p.innerText}`)
+          .then((response) => response.json())
+          .then((json) => {
+            console.log(json);
+          });
+      });
+      dogList.append(p);
+      console.log(dogList);
+    }
+    console.log(data);
+  });
